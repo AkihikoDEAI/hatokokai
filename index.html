@@ -1,211 +1,32 @@
 <!DOCTYPE html>
+
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8">
-<title>東京はとこ会</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="東京周辺に住む【はとこ達】の集まり">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <link rel="icon" href="images/favicon.ico">
+  <title>認証ページ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/login.css" />
 </head>
+
 <body>
+  <div class="login-container">
+    <h1>ログイン</h1>
+    <div class="form-group">
+      <label for="userid">ユーザーID</label>
+      <input type="text" id="userid" name="userid" required>
+    </div>
+    <div class="form-group">
+      <label for="password">パスワード</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button onclick="checkPassword()">ログイン</button>
+    <p id="error" style="color:red; display:none;">パスワードが間違っています</p>
 
-<header>
-
-<h1 id="logo"><img src="images/logo.png" alt="Hatoko Web Site"><span>東京はとこ会のウェブサイト</span></h1>
-
-<!--開閉ブロック-->
-<div id="menubar">
-
-<nav>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#section2">Profile</a></li>
-<li><a href="#section3">Activity Report</a></li>
-<li><a href="#section4">Gallery</a></li>
-</ul>
-</nav>
-
-<ul class="icons">
-<li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-<li><a href="#"><i class="fab fa-line"></i></a></li>
-<li><a href="#"><i class="fab fa-youtube"></i></a></li>
-<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-</ul>
-
-</div>
-<!--/#menubar-->
-
-</header>
-
-<main>
-
-
-
-<!-- ここからsection1 -->
-<section id="section1" class="section">
-</section>
-
-
-
-<!-- ここからsection2 -->
-<section id="section2" class="section">
-
-<h2>Profile</h2>
-<p>これはsection2のコンテンツです。</p>
-</section>
-
-<!-- ここからsection3 -->
-<section id="section3" class="section">
-
-<h2>Activity Report</h2>
-<p>これはsection3のコンテンツです。</p>
-
-<dl class="new">
-
-<dt>2024/11/04<span>第２回<br>はこと会</span></dt>
-<dd>鹿子木家、出合家で８名で八重洲 ひやり屋さんで開催。</dd>
-
-<dt>2024/10/26<span>第１回<br>はこと会</span></dt>
-<dd>栗山崇、出合章彦、出合壮彦(まさひこ)の３名で新宿 紀州屋さんで開催。</dd>
-
-</dl>
-
-</section>
-
-
-
-<!-- ここからsection4 -->
-<section id="section4" class="section">
-
-<h2>Gallery</h2>
-<p>はこと会の写真です</p>
-
-<div class="list-grid-trimming">
-
-<div class="list">
-<a href="images/" data-lightbox="group1" data-title="第１回はこと会&nbsp;新宿&nbsp;紀州屋">
-<img src="images/section1.jpg" alt="">
-</a>
-</div>
-
-<div class="list">
-<a href="images/section2.jpg" data-lightbox="group1" data-title="第２回はこと会&nbsp;八重洲&nbsp;ひかり屋">
-<img src="images/section2.jpg" alt="">
-</a>
-</div>
-
-<div class="list">
-<a href="images/section3.jpg" data-lightbox="group1" data-title="タイトルをここに入れます">
-<img src="images/section3.jpg" alt="">
-</a>
-</div>
-
-<div class="list">
-<a href="images/section1.jpg" data-lightbox="group1" data-title="タイトルをここに入れます">
-<img src="images/section1.jpg" alt="">
-</a>
-</div>
-
-<div class="list">
-<a href="images/section2.jpg" data-lightbox="group1" data-title="タイトルをここに入れます">
-<img src="images/section2.jpg" alt="">
-</a>
-</div>
-
-<div class="list">
-<a href="images/section3.jpg" data-lightbox="group1" data-title="タイトルをここに入れます">
-<img src="images/section3.jpg" alt="">
-</a>
-</div>
-
-<div class="list">
-<a href="images/section1.jpg" data-lightbox="group1" data-title="タイトルをここに入れます">
-<img src="images/section1.jpg" alt="">
-</a>
-</div>
-
-<div class="list">
-<a href="images/section2.jpg" data-lightbox="group1" data-title="タイトルをここに入れます">
-<img src="images/section2.jpg" alt="">
-</a>
-</div>
-
-<div class="list">
-<a href="images/section3.jpg" data-lightbox="group1" data-title="タイトルをここに入れます">
-<img src="images/section3.jpg" alt="">
-</a>
-</div>
-
-<div class="list">
-<a href="images/section1.jpg" data-lightbox="group1" data-title="タイトルをここに入れます">
-<img src="images/section1.jpg" alt="">
-</a>
-</div>
-
-<div class="list">
-<a href="images/section2.jpg" data-lightbox="group1" data-title="タイトルをここに入れます">
-<img src="images/section2.jpg" alt="">
-</a>
-</div>
-
-<div class="list">
-<a href="images/section3.jpg" data-lightbox="group1" data-title="タイトルをここに入れます">
-<img src="images/section3.jpg" alt="">
-</a>
-</div>
-
-</div>
-<!--/.list-grid-->
-
-<h3>グループ</h3>
-<p><span class="look">data-lightbox="group1"</span><br>
-は、ポップアップで表示した場合に次の画像へ繋ぐグループの設定です。<br>
-「group1」部分は好きに変更して頂いて構いません。<br>
-同じグループ名がついている場合に次の画像へのリンク矢印が出ます。グループごとに見て欲しい場合はこのグループ名を変更しておくといいでしょう。</p>
-<p class="look">&lt;a href=&quot;images_gallery/1.jpg&quot; <span class="color-check">data-lightbox=&quot;group1&quot;</span> data-title=&quot;タイトルをここに入れます&quot;&gt;<br>
-&lt;img src=&quot;images_gallery/1.jpg&quot; alt=&quot;&quot;&gt;<br>
-&lt;/a&gt;</p>
-<h3>ポップアップ時のコメント</h3>
-<p><span class="look">data-title="タイトルをここに入れます"</span><br>
-は、lightboxで暗転表示された際に写真下に表示されるテキストです。<br>
-よく分からない場合は実際に設定して動作を確認してみて下さい。不要ならタグごと削除してもらえばOKです。</p>
-<p class="look">&lt;a href=&quot;images_gallery/1.jpg&quot; data-lightbox=&quot;group1&quot; <span class="color-check">data-title=&quot;タイトルをここに入れます&quot;</span>&gt;<br>
-&lt;img src=&quot;images_gallery/1.jpg&quot; alt=&quot;&quot;&gt;<br>
-&lt;/a&gt;</p>
-
-<h3>lightboxを使う為に必要なタグ、ファイル類。</h3>
-<p>cssフォルダのstyle.css冒頭で読み込んでいる「lightbox.cssの読み込み」のブロック。<br>
-html下部で読み込んでいる「lightbox用jsファイルの読み込み」のブロック。</p>
-<p>何年も経過した場合、動作に問題が出てくる可能性があります。<br>
-テンプレートを編集していないのに突然動きがおかしくなった場合は、上記のバージョンを変更して動作するか確認してみて下さい。</p>
-
-</section>
-
-
-
-</main>
-
-<footer>
-<small>Copyright&copy; <a href="index.html">Tokyo Hatoko Web Site</a> All Rights Reserved.</small>
-<a href="mailto:deai0725@gmail.com?subject=東京はとこ会">メール起動</a>
-</footer>
-
-<!--ページの上部へ戻るボタン-->
-<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
-
-<!--開閉ボタン（ハンバーガーアイコン）-->
-<div id="menubar_hdr">
-<span></span><span></span><span></span>
-</div>
-
-<!--jQueryの読み込み-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<!--lightbox用jsファイルの読み込み-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox-plus-jquery.min.js"></script>
-
-<!--このテンプレート専用のスクリプト-->
-<script src="js/main.js"></script>
-
+    <!--このテンプレート専用のスクリプト-->
+    <script src="js/login.js"></script>
+  </div>
 </body>
+
 </html>
