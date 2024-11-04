@@ -2,18 +2,21 @@
 // checkPassword関数
 //===============================================================
 function checkPassword() {
-  const id = "3414574114194912145714";
-  const pw = "016659166651654933330905300577";
+  const salt = "68186968"
+  const pw = "380fac74c0ef488137008f4a0d3558f8132392744a428a7d46d3c02096c0e5cc";
   const url = "44147512667512335023125979";
   const user_idInput = document.getElementById("userid").value;
-  const passwordInput = document.getElementById("password").value;
+  const passwordInput = user_idInput + decodeStr(salt) + document.getElementById("password").value;
 
-  if ((user_idInput === decodeStr(id)) && (passwordInput === decodeStr(pw))) {
-    document.getElementById("error").style.display = "none";
-    window.location.href = decodeStr(url);
-  } else {
-    document.getElementById("error").style.display = "block";
-  }
+  generateHash(passwordInput).then(encyp => {
+    if (encyp === pw) {
+      document.getElementById("error").style.display = "none";
+      window.location.href = decodeStr(url);
+    } else {
+      document.getElementById("error").style.display = "block";
+    }
+  });
+
 }
 
 function decodeStr(chgStr) {
@@ -24,4 +27,11 @@ function decodeStr(chgStr) {
     str += encodeTbl.substring(idx, idx + 1);
   }
   return str;
+}
+
+async function generateHash(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hash = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
