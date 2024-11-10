@@ -1,29 +1,31 @@
 function checkPassword() {
   const salt = ":pw:";  // セミコロンを追加
   const user_idInput = document.getElementById("userid").value;
-  const passwordInput = document.getElementById("password").value;
+  const inputPW = document.getElementById('password');
+  const passwordInput = inputPW.value;
   const xhr = new XMLHttpRequest();
 
   const orgText = user_idInput + salt + passwordInput;
   generateHash(orgText).then(encyp => {
     window.alert(encyp);
     const url = encyp.substr(0, 8) + encyp.substr(-8, 8);
+    const error = document.getElementById('error');
     window.alert(url);
 
     xhr.open('GET', url);
     xhr.send();
     xhr.onload = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
+        error.style.display = "none";
         window.location = url;
       } else {
-        const error = document.getElementById('error');
-        const input = document.getElementById('password');
-        error.innerHTML = 'Wrong password! Try again.';
-        input.value = '';
+        error.style.display = "block";
+        error.innerHTML = 'ユーザーID、パスワードが間違っています。';
+        inputPW.value = '';
       }
     };
     xhr.onerror = function() {
-      const error = document.getElementById('error');
+      error.style.display = "block";
       error.innerHTML = 'Sorry, ERROR !';
     };
   });
