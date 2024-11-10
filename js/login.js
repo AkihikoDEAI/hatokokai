@@ -7,10 +7,8 @@ function checkPassword() {
 
   const orgText = user_idInput + salt + passwordInput;
   generateHash(orgText).then(encyp => {
-    window.alert(encyp);
     const url = encyp.substr(0, 8) + encyp.substr(-8, 8);
     const error = document.getElementById('error');
-    window.alert(url);
 
     xhr.open('GET', url);
     xhr.send();
